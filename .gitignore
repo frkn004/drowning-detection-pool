@@ -1,0 +1,110 @@
+# 🏊 DROWNING DETECTION PROJECT - GITIGNORE
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+drowning_env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Dataset Files (Large Files)
+*.mp4
+*.mov
+*.avi
+*.jpg
+*.jpeg
+*.png
+*.pt
+*.pth
+*.weights
+
+# Logs
+logs/
+*.log
+runs/
+
+# Model Files (Large)
+4_MODELS/*.pt
+8_TRAINING/models/*.pt
+8_TRAINING/dataset/
+
+# Output Files
+3_OUTPUT/
+OUTPUT/
+
+# Data Files
+0_DATA/
+DATA/
+5_TİCKET_DATA/01_frames/
+5_TİCKET_DATA/02_labels/
+5_TİCKET_DATA/03_verified/
+5_TİCKET_DATA/04_dataset/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+
+# Cache
+*.cache
+.pytest_cache/
+
+# VAST.AI
+vast_ai_setup/ssh_keys/

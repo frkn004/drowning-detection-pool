@@ -1,0 +1,95 @@
+# 🤖 DROWNING DETECTION TRAINING CONFIGURATION
+
+# Model Configuration
+model: "yolov8m.pt"  # Base model (yolov8m as starting point)
+task: "detect"       # Detection task
+mode: "train"        # Training mode
+
+# Training Parameters
+epochs: 100          # Training epochs
+patience: 20         # Early stopping patience
+batch: 16           # Batch size (adjust based on GPU memory)
+imgsz: 640          # Image size for training
+device: "0"         # GPU device (0 for first GPU, "cpu" for CPU)
+
+# Learning Rate
+lr0: 0.01           # Initial learning rate
+lrf: 0.01           # Final learning rate (lr0 * lrf)
+momentum: 0.937     # SGD momentum/Adam beta1
+weight_decay: 0.0005 # Optimizer weight decay
+
+# Loss function weights
+box: 7.5            # Box loss gain
+cls: 0.5            # Classification loss gain  
+dfl: 1.5            # DFL loss gain
+
+# Augmentation (dataset.yaml'daki ile sync)
+augment: True
+hsv_h: 0.015
+hsv_s: 0.7
+hsv_v: 0.4
+degrees: 10.0
+translate: 0.1
+scale: 0.5
+shear: 0.0
+perspective: 0.0
+flipud: 0.0
+fliplr: 0.5
+mosaic: 1.0
+mixup: 0.1
+
+# Validation
+val: True           # Validate during training
+save_period: 10     # Save checkpoint every N epochs
+plots: True         # Save training plots
+visualize: True     # Visualize model architecture
+
+# Output Settings
+project: "runs/train"           # Project directory
+name: "drowning_detection"      # Experiment name
+exist_ok: True                  # Overwrite existing experiment
+save: True                      # Save checkpoints
+save_txt: False                 # Save predictions as txt
+save_conf: False                # Save predictions with confidence
+save_crop: False                # Save cropped predictions
+
+# Hardware Optimization
+workers: 8          # Number of worker threads for data loading
+amp: True           # Automatic Mixed Precision training
+half: False         # Use FP16 inference
+dnn: False          # Use OpenCV DNN backend
+multi_scale: False  # Multi-scale training
+
+# Logging
+verbose: True       # Verbose output
+tensorboard: True   # Enable TensorBoard logging
+wandb: False        # Weights & Biases logging (set True if using)
+
+# PHASE-SPECIFIC SETTINGS
+# Phase 1: Mini Dataset (200 frames)
+phase1:
+  epochs: 50
+  batch: 8
+  patience: 15
+  lr0: 0.01
+
+# Phase 2: Extended Dataset (500 frames)  
+phase2:
+  epochs: 100
+  batch: 16
+  patience: 20
+  lr0: 0.008
+
+# Phase 3: Production Dataset (1000 frames)
+phase3:
+  epochs: 150
+  batch: 16
+  patience: 25
+  lr0: 0.005
+
+# Phase 4: Final Dataset (1500 frames)
+phase4:
+  epochs: 200
+  batch: 16
+  patience: 30
+  lr0: 0.003
