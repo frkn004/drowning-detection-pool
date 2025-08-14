@@ -12,25 +12,25 @@ MAIN_FOLDER_ID = "13CBL3-czwwxim49iz6NZ8t8Eq42YeyaW"
 # 📦 Dataset klasörleri (Google Drive File ID'lerini güncelleyin)
 DATASET_FOLDERS = {
     "1_CODES": {
-        "id": "YOUR_1_CODES_ID",  # Google Drive'dan alınacak
+        "id": "1NN2Yk1_Qb2afY_aXjMl_i3W0qj99hkFP",  # ✅ CONFIGURED
         "local_path": "1_CODES",
         "sync": False,
         "description": "Core kod modülleri"
     },
     "4_MODELS": {
-        "id": "YOUR_4_MODELS_ID", 
+        "id": "1l5KeDCuMo4humciIekqrtCfLrACF8YJg",  # ✅ CONFIGURED  
         "local_path": "4_MODELS",
         "sync": False,
-        "description": "YOLO model dosyaları (*.pt)"
+        "description": "YOLO model dosyaları (*.pt) - 10 farklı model"
     },
     "5_TİCKET_DATA": {
-        "id": "YOUR_5_TICKET_DATA_ID",
+        "id": "1h6zWUm8piSgwAd9C_a1RTbdDhwt2A-nO",  # ✅ CONFIGURED
         "local_path": "5_TİCKET_DATA", 
         "sync": False,
         "description": "1,814 frame dataset + labels"
     },
     "9_TICKETv2": {
-        "id": "YOUR_9_TICKETV2_ID",
+        "id": "1wUH-J16XVYCxKhHV-iKFmVVKz0hh3TK_",  # ✅ CONFIGURED
         "local_path": "9_TICKETv2",
         "sync": False,
         "description": "5,354 frame dataset + labels (ANA DATASET)"
