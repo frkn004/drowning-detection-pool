@@ -1,0 +1,48 @@
+# 🏊 DROWNING DETECTION DATASET CONFIGURATION
+
+# Dataset paths
+path: /home/ubuntu/drowning_detection/dataset  # VAST.AI dataset root
+train: images/train  # Train images (relative to 'path')
+val: images/val      # Val images (relative to 'path')
+test: images/test    # Test images (optional, relative to 'path')
+
+# Classes
+nc: 4  # Number of classes
+names: 
+  0: person_swimming   # Havuzda yüzen kişi (YEŞİL)
+  1: person_drowning   # Boğulan kişi (KIRMIZI) 
+  2: person_poolside   # Havuz kenarındaki kişi (MAVİ)
+  3: pool_equipment    # Havuz ekipmanı (SARI)
+
+# Dataset info
+description: "Drowning Detection Pool Dataset - YOLOv12 Custom Training"
+version: "1.0.0"
+created: "2025-08-05"
+authors: ["FURKAN", "NISA"]
+
+# Class distribution (target)
+class_weights:
+  person_swimming: 0.40   # %40 - Ana sınıf
+  person_drowning: 0.30   # %30 - Kritik sınıf  
+  person_poolside: 0.20   # %20 - Kontrol sınıfı
+  pool_equipment: 0.10    # %10 - Yardımcı sınıf
+
+# Augmentation settings (data artırma)
+augment: True
+hsv_h: 0.015     # Hue augmentation
+hsv_s: 0.7       # Saturation augmentation  
+hsv_v: 0.4       # Value augmentation
+degrees: 10.0    # Rotation augmentation (+/- degrees)
+translate: 0.1   # Translation augmentation fraction
+scale: 0.5       # Scale augmentation gain
+shear: 0.0       # Shear augmentation degrees
+perspective: 0.0 # Perspective augmentation fraction
+flipud: 0.0      # Vertical flip probability
+fliplr: 0.5      # Horizontal flip probability (havuz için uygun)
+mosaic: 1.0      # Mosaic augmentation probability
+mixup: 0.1       # Mixup augmentation probability
+
+# Validation settings
+val_fraction: 0.2  # %20 validation split
+shuffle: True      # Shuffle dataset
+seed: 42          # Random seed for reproducibility

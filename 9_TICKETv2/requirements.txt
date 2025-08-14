@@ -1,0 +1,21 @@
+# HAVUZ VİDEO ETİKETLEME ARACI - GEREKLİ PAKETLER
+# ===============================================
+
+# Computer Vision
+opencv-python>=4.8.0
+numpy>=1.21.0
+
+# YOLO Model
+ultralytics>=8.0.0
+torch>=1.12.0
+torchvision>=0.13.0
+
+# GUI ve Sistem
+Pillow>=9.0.0
+matplotlib>=3.5.0
+
+# Ekstra (Opsiyonel)
+# labelImg>=1.8.6  # Alternatif annotation tool
+
+
+

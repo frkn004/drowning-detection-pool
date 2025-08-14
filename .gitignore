@@ -1,0 +1,51 @@
+# 🚫 BÜYÜK DOSYALAR - GITHUB'A UPLOAD ETMEYİN
+
+# Video dosyaları
+*.mp4
+*.mov
+*.MOV
+*.avi
+
+# Büyük model dosyaları
+*.pt
+4_MODELS/
+9_TICKETv2/models/
+drowning_detection_v12/
+drowning_detection_v12_best.pt
+drowning_detection_v12_working.pt
+yolov8x.pt
+
+# Büyük dataset klasörleri
+0_DATA/
+3_OUTPUT/
+5_TİCKET_DATA/01_frames/
+5_TİCKET_DATA/02_labels/
+9_TICKETv2/01_frames/
+9_TICKETv2/02_labels/
+MINI_DATASET_GITHUB/
+
+# Temp ve output
+OUTPUT/
+temp_frames/
+runs/
+logs/
+checkpoints/
+
+# System files
+__pycache__/
+*.pyc
+*.pyo
+.Python
+*.so
+.venv/
+env/
+.env
+.DS_Store
+Thumbs.db
+*backup*
+*kopyası*
+
+# Archives
+*.tar.gz
+*.zip
+*.7z

@@ -1,0 +1,109 @@
+# 🔐 VAST.AI SSH BAĞLANTI REHBERİ
+
+## SSH BAĞLANTI BİLGİLERİ
+# VAST.AI'dan aldığınız bilgileri buraya yazın:
+
+HOST: [VAST.AI'dan alacağınız IP]
+PORT: [VAST.AI'dan alacağınız PORT]
+USER: root
+SSH_KEY: [Local SSH key path]
+
+# Örnek:
+# HOST: 104.171.200.62
+# PORT: 12345
+# USER: root
+# SSH_KEY: ~/.ssh/id_rsa
+
+## BAĞLANTI KOMUTU ÖRNEĞİ
+ssh -p [PORT] root@[HOST] -L 8888:localhost:8888 -L 6006:localhost:6006
+
+# Örnek:
+# ssh -p 12345 root@104.171.200.62 -L 8888:localhost:8888 -L 6006:localhost:6006
+
+## PORT FORWARDING AÇIKLAMASI
+# -L 8888:localhost:8888  -> Jupyter notebook için
+# -L 6006:localhost:6006  -> TensorBoard için
+
+## İLK BAĞLANTI ADIMLARİ
+
+1. VAST.AI'dan instance kiralayın
+2. SSH key'inizi upload edin veya oluşturun
+3. Yukarıdaki bağlantı komutunu kullanın
+4. setup.sh scriptini çalıştırın:
+   chmod +x setup.sh
+   ./setup.sh
+
+## DOSYA TRANSFER
+
+### Local'den VAST.AI'ya upload:
+scp -P [PORT] -r ../5_TİCKET_DATA root@[HOST]:~/drowning_detection/
+scp -P [PORT] -r configs scripts root@[HOST]:~/drowning_detection/
+
+### VAST.AI'dan local'e download:
+scp -P [PORT] root@[HOST]:~/drowning_detection/models/best_*.pt ./models/
+
+## TMUX KULLANIMI (UZUN SÜREN EĞİTİM İÇİN)
+
+# Yeni session oluştur
+tmux new-session -s training
+
+# Session'dan çık (eğitim devam eder)
+Ctrl+B, sonra D
+
+# Session'a geri dön
+tmux attach-session -t training
+
+# Session'ları listele
+tmux list-sessions
+
+## MONİTORİNG
+
+### GPU kullanımını izle:
+watch -n 1 nvidia-smi
+
+### TensorBoard:
+tensorboard --logdir=runs/train --host=0.0.0.0 --port=6006
+
+### Jupyter Notebook:
+jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
+
+## EĞİTİM BAŞLATMA
+
+1. SSH ile bağlanın
+2. Virtual environment aktif edin:
+   source drowning_env/bin/activate
+3. Dataset hazırlayın:
+   cd ~/drowning_detection
+   python scripts/prepare_dataset.py
+4. Eğitimi başlatın:
+   python scripts/train_model.py
+5. Monitoring için TensorBoard açın
+
+## SORUN GİDERME
+
+### Bağlantı kopması:
+- tmux kullanın
+- autossh kullanabilirsiniz
+- screen alternatifi
+
+### GPU memory hatası:
+- Batch size küçültün (config'de)
+- Image size küçültün (640->416)
+
+### Dataset hatası:
+- Path'leri kontrol edin
+- File permissions kontrol edin
+- Dataset yapısını kontrol edin
+
+## MALİYET TAKİBİ
+
+### VAST.AI'da:
+- $/hour oranını takip edin
+- Auto-stop ayarlayın
+- Regular backup alın
+
+### Önerilen:
+- Günlük maliyet: $10-20
+- Phase 1: 2-4 saat ($5-15)
+- Phase 2: 8-12 saat ($20-40)
+- Total budget: $100-200
