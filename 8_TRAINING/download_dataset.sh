@@ -67,3 +67,5 @@ echo "📁 Dataset konumu: $DOWNLOAD_DIR"
 echo "🚀 Eğitime başlamak için:"
 echo "   cd $DOWNLOAD_DIR/8_TRAINING"
 echo "   python scripts/prepare_dataset.py"
+
+

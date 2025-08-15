@@ -195,3 +195,5 @@ echo "📋 Sonraki adımlar:"
 echo "1. Google Drive'a dataset'leri upload edin"
 echo "2. VAST.AI'da repo clone edin"  
 echo "3. Eğitimi başlatın"
+
+

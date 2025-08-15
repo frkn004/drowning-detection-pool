@@ -169,3 +169,5 @@ echo "2. DATASET_INFO.md'deki File ID'leri güncelleyin"
 echo "3. VAST.AI'da git clone ile sistemi indirin"
 echo "4. gdrive_downloader.sh ile dataset'leri indirin"
 echo "5. Eğitimi başlatın"
+
+

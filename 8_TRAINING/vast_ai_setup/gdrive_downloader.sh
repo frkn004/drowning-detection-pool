@@ -274,3 +274,5 @@ esac
 
 echo ""
 echo "🏊 Script tamamlandı!"
+
+

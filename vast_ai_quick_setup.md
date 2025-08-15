@@ -114,3 +114,5 @@ cd drowning-detection-pool
 chmod +x 8_TRAINING/vast_ai_setup/setup.sh
 ./8_TRAINING/vast_ai_setup/setup.sh
 ```
+
+
